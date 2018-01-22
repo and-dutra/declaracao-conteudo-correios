@@ -20,7 +20,7 @@ class DeclaracaoConteudo extends Controller
     private $destinatario;
     private $itens;
     private $valorTotal;
-
+    private $quantidadeTotal;
     /**
      * DeclaracaoConteudo constructor.
      *
@@ -33,12 +33,14 @@ class DeclaracaoConteudo extends Controller
         PessoaInterface $remetente,
         PessoaInterface $destinatario,
         ItemBagInterface $itens,
-        $valorTotal = 0.00
+        $valorTotal = 0.00,
+        $quantidadeTotal = 0.00
     ) {
         $this->remetente = $remetente;
         $this->destinatario = $destinatario;
         $this->itens = $itens;
         $this->valorTotal = $valorTotal;
+        $this->quantidadeTotal = $quantidadeTotal;
     }
 
     /**
@@ -50,7 +52,8 @@ class DeclaracaoConteudo extends Controller
             'remetente' => $this->remetente,
             'destinatario' => $this->destinatario,
             'itens' => $this->itens,
-            'valorTotal' => $this->valorTotal
+            'valorTotal' => $this->valorTotal,
+            'quantidadeTotal' => $this->quantidadeTotal
         ]);
     }
 }

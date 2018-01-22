@@ -22,8 +22,12 @@
                         <table class="table table-sm m-0">
                             <tbody>
                                 <tr>
-                                    <th>Remetente:</th>
+                                    <th class="force-w">Remetente:</th>
                                     <td colspan="3"><?php echo $remetente->getNome(); ?></td>
+                                </tr>
+                                <tr>
+                                    <th class="force-w">CPF/CNPJ:</th>
+                                    <td colspan="3"><?php echo $remetente->getDoc(); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Endereço:</th>
@@ -46,8 +50,12 @@
                         <table class="table table-sm m-0">
                             <tbody>
                             <tr>
-                                <th>Destinatário:</th>
+                                <th class="force-w">Destinatário:</th>
                                 <td colspan="3"><?php echo $destinatario->getNome(); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="force-w">CPF/CNPJ:</th>
+                                <td colspan="3"><?php echo $destinatario->getDoc(); ?></td>
                             </tr>
                             <tr>
                                 <th>Endereço:</th>
@@ -74,7 +82,7 @@
                             <tr>
                                 <th class="text-center">Discriminação do Conteúdo</th>
                                 <th class="text-center">Quantidade</th>
-                                <th class="text-center">Peso</th>
+                                <th class="text-center">Valor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,8 +94,13 @@
                                 </tr>
                             <?php endforeach; ?>
                             <tr>
-                                <td class="text-center" colspan="2">Valor Total</td>
+                                <td class="text-right td-res font-weight-bold">Totais</td>
+                                <td class="text-center"><?php echo $quantidadeTotal; ?></td>
                                 <td class="text-center"><?php echo 'R$ ' . str_replace('.', ',', (string)$valorTotal); ?></td>
+                            </tr>
+                             <tr>
+                                <td class="text-right td-res font-weight-bold"> Peso Total (kg)</td>
+                                <td class="text-right" colspan="2"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -146,13 +159,9 @@
                                     <td colspan="2">Observações:</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-top:0px;">I.</td>
-                                    <td style="border-top:0px;"><small>É Contribuinte de ICMS qualquer pessoa física ou jurídica, que realize, com habitualidade ou em volume que caracterize intuito comercial, operações de circulação de mercadoria ou prestações de serviços de transportes interestadual e intermunicipal e de comunicação, ainda que as operações e prestações se iniciem no exterior (Lei Complementar nº 87/96 Art. 4º).</small></td>
+                                    <td style="border-top:0px;"><small>Constitui crime contra a ordem tributária suprimir ou reduzir tributo, ou contribuição social e qualquer acessório (Lei 8.137/90 Art. 1o, V).</small></td>
                                 </tr>
-                                <tr>
-                                    <td style="border-top:0px;">II.</td>
-                                    <td style="border-top:0px;"><small>Constitui crime contra a ordem tributária suprimir ou reduzir tributo, ou contribuição social e qualquer acessório: quando negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente, relativa a venda de mercadoria ou prestação de serviço, efetivamente realizada, ou fornecê-la em desacordo com a legislação. Sob pena de reclusão de 2 (dois) a 5 (anos), e multa (Lei 8.137/90 Art. 1º, V).</small></td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
@@ -165,9 +174,18 @@
             * {
                 -webkit-print-color-adjust: exact;
             }
+            .td-res {
+                background-color: #f0f0f0;
+            }
+            th.force-w {
+                width: 270px !important;
+            }
             @media print {
                 .thead-light, .table .thead-light th {
                     background-color: #e9ecef !important;
+                }
+                .td-res {
+                    background-color: #f0f0f0;
                 }
             }
         </style>
